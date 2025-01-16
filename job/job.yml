@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: example-job
+spec:
+  template:
+    metadata:
+      name: example-job
+    spec:
+      containers:
+        - name: busybox
+          image: docker.arvancloud.ir/busybox:1.35
+          command:
+            - /bin/sh
+            - -c
+            - "echo 'Hello from Job'; 'exit 0'"
+      restartPolicy: Never
+  backoffLimit: 3
+  ttlSecondsAfterFinished: 30

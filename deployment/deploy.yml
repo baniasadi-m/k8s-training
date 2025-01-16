@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx-dp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-dp
+  template:
+    metadata:
+      labels:
+        app: nginx-dp
+    spec:
+      containers:
+        - name: nginx-dp
+          image: docker.arvancloud.ir/nginx:latest
+          ports:
+            - containerPort: 80
