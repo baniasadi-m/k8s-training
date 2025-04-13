@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mba-nginx
+  labels:
+    app: nginx
+    env: dev
+    tier: frontend
+spec:
+  containers:
+    - image: docker.arvancloud.ir/nginx:1.27
+      name: mba-nginx-container
+      imagePullPolicy: IfNotPresent
